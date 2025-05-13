@@ -1,10 +1,8 @@
-import './App.css';
+import Body from './components/Body';
 
 function App() {
   return (
-    <div className="App">
-      <h1 className='text-green-600'>React Lessons.</h1>
-    </div>
+    <Body/>
   );
 }
 
