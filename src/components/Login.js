@@ -1,8 +1,9 @@
 import { checkValidData } from "../utils/validate";
 import Header from "./Header";
 import { useRef, useState } from "react";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../utils/firebase";
+import { BACKGROUND_IMG_URL } from "../utils/constants";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
@@ -40,13 +41,25 @@ const Login = () => {
     } else {
       const errMessage = checkValidData(
         email.current.value,
-        password.current.value,
+        password.current.value
       );
 
       setErrorMessage(errMessage);
       if (errMessage) return;
 
       // sign in logic here
+      signInWithEmailAndPassword(auth,  email.current.value, password.current.value)
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          console.log(user)
+         
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          setErrorMessage(errorCode + " - " + errorMessage);
+        });
     }
   };
   return (
@@ -54,8 +67,7 @@ const Login = () => {
       <Header />
       <div className="absolute">
         <img
-          src="
-            https://assets.nflxext.com/ffe/siteui/vlv3/cb17c41d-6a67-4472-8b91-cca977e65276/web/IN-en-20250505-TRIFECTA-perspective_03ae1a85-5dcf-4d20-a8a6-1e61f7ef73cb_large.jpg"
+          src={BACKGROUND_IMG_URL}
           alt="background"
         />
       </div>
