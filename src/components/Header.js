@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { addUser, removeUser } from "../utils/userSlice";
 import { VscSignOut } from "react-icons/vsc";
+import { FaRegUserCircle } from "react-icons/fa";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -43,8 +44,10 @@ const Header = () => {
     <div className="py-2 px-8 absolute bg-gradient-to-b from-black w-full z-10 flex justify-between items-center">
       <img className="w-40" src={LOGO_IMG_URL} alt="netflix logo" />
       {user && <div className="flex items-center space-x-2">
-        <p className="font-bold text-white">{user?.displayName.split(" ")[0]} </p>
-        <img src={user?.photoURL} alt="user icon" className="h-8 w-8 rounded-full border-2 border-red-600"/>
+        <p className="font-bold text-white">{user?.displayName?.split(" ")[0] || "User"} </p>
+        {user?.photoURL ? <img src={user?.photoURL} alt="user icon" className="h-8 w-8 rounded-full border-2 border-red-600"/> : <FaRegUserCircle size={30} className="text-red-600 bg-gradient-to-b rounded-full"/>
+}
+        
         <button
           className="p-1 text-xs font-bold rounded-md shadow-xl text-white hover:text-red-600"
           onClick={handleSignOut}
