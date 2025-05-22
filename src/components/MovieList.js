@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import MovieCard from "./MovieCard";
 import useScrollLeft from "../hooks/useScrollLeft";
 
@@ -10,7 +10,7 @@ const MovieList = ({ title, movies }) => {
   useScrollLeft(scrollRef);
 
   return (
-    <div className="pt-3 pl-12 pr-3 bg-transparent">
+    <div className="pt-3 pl-12 pr-2 bg-transparent">
       <h1 className="text-2xl font-semibold pb-3 text-white">{title}</h1>
       <div
         className="flex overflow-x-scroll [&::-webkit-scrollbar]:w-1 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-transparent [&::-webkit-scrollbar]:h-1"
