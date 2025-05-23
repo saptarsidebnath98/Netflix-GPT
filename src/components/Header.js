@@ -69,7 +69,7 @@ const Header = () => {
             GPT Search
           </button>
           <p className="font-bold text-white">
-            {user?.displayName?.split(" ")[0] || "User"}{" "}
+            {user?.displayName?.split(" ")[0] || "User"}
           </p>
           {user?.photoURL ? (
             <img
