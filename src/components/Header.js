@@ -9,12 +9,15 @@ import { VscSignOut } from "react-icons/vsc";
 import { FaRegUserCircle } from "react-icons/fa";
 import { LuSearchCode } from "react-icons/lu";
 import { toggleGptSearchView } from "../utils/gptSlice";
+import { changeLanguage } from "../utils/configSlice";
+import { FaHome } from "react-icons/fa";
 
 const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const user = useSelector((state) => state.user);
+  const user = useSelector((store) => store.user);
+  const isGptPage = useSelector((store) => store.gpt.showGptSearch);
 
   const handleSignOut = () => {
     signOut(auth)
@@ -54,19 +57,27 @@ const Header = () => {
     dispatch(toggleGptSearchView())
   };
 
+  const handleLanguageChange = (e) => {
+    dispatch(changeLanguage(e.target.value))
+  }
+
   return (
     <div className="py-2 px-8 absolute bg-gradient-to-b from-black w-full z-10 flex justify-between items-center">
       <img className="w-40" src={LOGO_IMG_URL} alt="netflix logo" />
       {user && (
         <div className="flex items-center space-x-2">
 
-          <select className="bg-gray-500 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-1.5">
-            {SUPPORTED_LANGUAGES.map(lang => <option value={lang.identifier} key={lang.identifier}>{lang.name}</option>)}
-          </select>
+          {isGptPage && <select className="bg-black bg-opacity-55 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-1.5 " onChange={handleLanguageChange}>
+            {SUPPORTED_LANGUAGES.map(lang => <option value={lang.identifier} key={lang.identifier} className="bg-black mt-2">{lang.name}</option>)}
+          </select>}
+          
 
           <button className="bg-gradient-to-r from-indigo-500 to-red-600 text-white font-semibold p-2 rounded-md text-xs shadow-lg mx-2 flex items-center gap-1 hover:border hover:border-purple-300 transform transition-all" onClick={handleGptSearchClick}>
-            <LuSearchCode size={15} />
-            GPT Search
+            {isGptPage ?  (<><FaHome size={15} /><span>Homepage</span></>):(<><LuSearchCode size={15} /> 
+           <span> GPT Search </span></>)}
+            
+            
+
           </button>
           <p className="font-bold text-white">
             {user?.displayName?.split(" ")[0] || "User"}

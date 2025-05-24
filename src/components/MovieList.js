@@ -3,7 +3,6 @@ import MovieCard from "./MovieCard";
 import useScrollLeft from "../hooks/useScrollLeft";
 
 const MovieList = ({ title, movies }) => {
-  console.log(movies);
 
   const scrollRef = useRef(null);
 

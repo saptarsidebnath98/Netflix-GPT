@@ -38,6 +38,11 @@
 - Created Movie Lists and movie cards
 - Update store with Popular, Top Rated, Upcoming movies
 - Created custom hooks for different category movies
+- usePopularMovies Custom hook
+- GPT Search Page
+- GPT Search Bar
+- (*)Multi-language feature in our App
+
 
 
 

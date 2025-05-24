@@ -18,7 +18,10 @@ export const SUPPORTED_LANGUAGES = [
   {identifier: "en", name: "English"},
   {identifier: "bengali", name: "Bengali"},
   {identifier: "hindi", name: "Hindi"},
+  {identifier: "tamil", name: "Tamil"},
+  {identifier: "telugu", name: "Telugu"},
   {identifier: "spanish", name: "Spanish"},
   {identifier: "german", name: "German"},
   {identifier: "japanese", name: "Japanese"},
+  {identifier: "korean", name: "Korean"},
 ]
