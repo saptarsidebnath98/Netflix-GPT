@@ -4,11 +4,13 @@ export const LOGO_IMG_URL = "https://help.nflxext.com/helpcenter/OneTrust/oneTru
 
 export const USER_ICON_URL = "https://occ-0-3777-2164.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABXz4LMjJFidX8MxhZ6qro8PBTjmHbxlaLAbk45W1DXbKsAIOwyHQPiMAuUnF1G24CLi7InJHK4Ge4jkXul1xIW49Dr5S7fc.png?r=e6e";
 
+export const NETFLIX_PORTRAIT_IMG_URL = "https://w0.peakpx.com/wallpaper/172/343/HD-wallpaper-netflix-logo-black-logo-minimal-netflix.jpg"
+
 export const API_OPTIONS = {
   method: 'GET',
   headers: {
     accept: 'application/json',
-    Authorization: 'Bearer ',
+    Authorization: 'Bearer ' + process.env.REACT_APP_TMDB_KEY,
   }
 };
 
@@ -24,4 +26,8 @@ export const SUPPORTED_LANGUAGES = [
   {identifier: "german", name: "German"},
   {identifier: "japanese", name: "Japanese"},
   {identifier: "korean", name: "Korean"},
-]
+];
+
+export const GITHUB_TOKEN = process.env.REACT_APP_GITHUB_TOKEN;
+
+export const OPENAI_API_ENDPOINT = "https://models.github.ai/inference";
