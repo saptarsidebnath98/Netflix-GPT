@@ -8,7 +8,6 @@ const GptSearchPage = () => {
       <div className="absolute h-full">
         <img src={BACKGROUND_IMG_URL} alt="background" className="blur-md "/>
         <img src={BACKGROUND_IMG_URL} alt="background" className="blur-md "/>
-        {/* <img src={BACKGROUND_IMG_URL} alt="background" className="blur-md "/> */}
       </div>
       <GptSearchBar />
       <GptMovieSuggestions />

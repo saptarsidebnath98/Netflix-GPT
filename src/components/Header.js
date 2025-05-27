@@ -8,7 +8,7 @@ import { addUser, removeUser } from "../utils/userSlice";
 import { VscSignOut } from "react-icons/vsc";
 import { FaRegUserCircle } from "react-icons/fa";
 import { LuSearchCode } from "react-icons/lu";
-import { toggleGptSearchView } from "../utils/gptSlice";
+import { removeGptMovieResults, toggleGptSearchView } from "../utils/gptSlice";
 import { changeLanguage } from "../utils/configSlice";
 import { FaHome } from "react-icons/fa";
 
@@ -54,7 +54,10 @@ const Header = () => {
 
   const handleGptSearchClick = () => {
     // Toggle GPT Search
-    dispatch(toggleGptSearchView())
+    dispatch(toggleGptSearchView());
+    if(!isGptPage){
+      dispatch(removeGptMovieResults());
+    }
   };
 
   const handleLanguageChange = (e) => {
