@@ -18,8 +18,9 @@ const MovieList = ({ title, movies }) => {
         <div className="flex space-x-2">
           {movies?.map((movie) => (
             <MovieCard
-              backdropPath={movie.poster_path}
+              posterPath={movie.poster_path}
               title={movie.title}
+              id={movie.id}
               key={movie.id}
             />
           ))}

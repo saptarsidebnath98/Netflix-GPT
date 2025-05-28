@@ -32,3 +32,10 @@ export const SUPPORTED_LANGUAGES = [
 export const GITHUB_TOKEN = process.env.REACT_APP_GITHUB_TOKEN;
 
 export const OPENAI_API_ENDPOINT = "https://models.github.ai/inference";
+
+export const formatToUSCurrency = (number) => {
+  return number.toLocaleString('en-US', { 
+    style: 'currency', 
+    currency: 'USD' 
+  });
+}
