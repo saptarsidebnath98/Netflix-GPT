@@ -77,7 +77,7 @@ const Header = () => {
       <button className="text-white absolute right-2 top-5 md:hidden" onClick={handleShowMenu}>{showMenu ? <RxCross2 /> : <IoMenu />}</button>
       <img className="w-24 md:w-40" src={LOGO_IMG_URL} alt="netflix logo" />
       {user && (
-        <div className={`${showMenu ? "flex" : "hidden" } items-center w-full justify-between md:justify-end relative md:bg-transparent rounded-sm bg-opacity-50 transform space-x-2`}>
+        <div className={`${showMenu ? "flex" : "hidden" } md:flex items-center w-full justify-between md:justify-end relative md:bg-transparent rounded-sm bg-opacity-50 transform space-x-2`}>
 
           <div className="flex items-center">
           {isGptPage && <select className="bg-black bg-opacity-25 text-white text-xs md:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-1.5 w-12 md:w-24 focus:outline-none" onChange={handleLanguageChange}>

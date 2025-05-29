@@ -58,23 +58,23 @@ const GptSearchBar = () => {
 
 
   return (
-    <div className="w-full absolute top-[15%] bg-transparent">
+    <div className="w-full absolute top-[10%] md:top-[15%] bg-transparent">
       <form
-        className="pt-10 pb-10 px-12  w-1/2 mx-auto flex justify-center items-center space-x-2"
+        className="pt-10 md:pb-10 px-3 md:px-12 w-full text-[12px] md:text-sm  md:w-1/2 mx-auto flex justify-center items-center space-x-2"
         onSubmit={(e) => e.preventDefault()}
       >
         <input
           type="text"
           ref={searchText}
-          className=" py-1 px-3 w-2/3 rounded-md text-white border-2 border-[#e50914] focus:outline-none placeholder:text-gray-500 bg-black"
+          className=" py-1 px-3 w-full md:w-2/3 rounded-md text-white border-2 border-[#e50914] focus:outline-none placeholder:text-gray-500 bg-black"
           placeholder={lang[languageKey].gptSearchPlaceholder}
         />
         <button
-          className="bg-[#e50914] hover:bg-[#f7444d] text-white rounded-md text-sm font-semibold pt-1 pb-1.5 flex items-center gap-1 pr-3 pl-2"
+          className="bg-[#e50914] hover:bg-[#f7444d] text-white rounded-md text-[10px] md:text-sm font-semibold pt-1 pb-1.5 flex items-center gap-1 p-2 md:pr-3 md:pl-2"
           onClick={handleGptSearchClick}
         >
-          <LuSearchCode size={20} />
-          {lang[languageKey].search}
+          <LuSearchCode className="text-xs md:text-sm" />
+          <span className="hidden md:block">{lang[languageKey].search}</span>
         </button>
       </form>
     </div>

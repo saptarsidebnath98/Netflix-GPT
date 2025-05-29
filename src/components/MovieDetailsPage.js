@@ -1,6 +1,5 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { IoArrowBackCircleSharp } from "react-icons/io5";
-import Loading from "./Loading";
 import useMovieDetails from "../hooks/useMovieDetails";
 import MovieContent from "./MovieContent";
 import { BiSolidCameraMovie } from "react-icons/bi";

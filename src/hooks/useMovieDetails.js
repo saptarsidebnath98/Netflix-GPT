@@ -34,7 +34,7 @@ const useMovieDetails = (id) => {
   useEffect(() => {
     getMovieVideos();
     getMovieData();
-  }, []);
+  }, [id]);
 
   return {movieData , trailer, trailerLoading, movieDataLoading}
 };
