@@ -9,8 +9,8 @@ const MovieList = ({ title, movies }) => {
   useScrollLeft(scrollRef);
 
   return (
-    <div className="pt-3 pl-12 pr-2 bg-transparent">
-      <h1 className="text-2xl font-semibold pb-3 text-white">{title}</h1>
+    <div className="pt-3 px-2 md:pl-12 pr-2 bg-transparent">
+      <h1 className="text-md md:text-2xl font-semibold pb-2 text-white">{title}</h1>
       <div
         className="flex overflow-x-scroll [&::-webkit-scrollbar]:w-1 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-transparent [&::-webkit-scrollbar]:h-1"
         ref={scrollRef}

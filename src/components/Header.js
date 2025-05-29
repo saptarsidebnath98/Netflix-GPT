@@ -73,8 +73,8 @@ const Header = () => {
   }
 
   return (
-    <div className="py-2 px-2  md:px-8 absolute bg-gradient-to-b from-black w-full z-10 flex justify-between items-center flex-col md:flex-row gap-2 bg-black md:bg-transparent">
-      <button className="text-white absolute right-2 top-5 md:hidden" onClick={handleShowMenu}>{showMenu ? <RxCross2 /> : <IoMenu />}</button>
+    <div className={`py-2 px-2  md:px-8 absolute bg-gradient-to-b from-black w-full z-10 flex justify-between items-center flex-col md:flex-row gap-2 ${user && "bg-black border-b-2 border-red-600"}  md:bg-transparent md:border-none`}>
+      {user && <button className="text-white absolute right-2 top-5 md:hidden" onClick={handleShowMenu}>{showMenu ? <RxCross2 /> : <IoMenu />}</button>}
       <img className="w-24 md:w-40" src={LOGO_IMG_URL} alt="netflix logo" />
       {user && (
         <div className={`${showMenu ? "flex" : "hidden" } md:flex items-center w-full justify-between md:justify-end relative md:bg-transparent rounded-sm bg-opacity-50 transform space-x-2`}>

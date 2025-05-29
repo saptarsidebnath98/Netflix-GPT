@@ -85,17 +85,18 @@ const Login = () => {
   return (
     <div className="w-full">
       <Header />
-      <div className="absolute">
+      <div className="absolute w-full">
         <img
           src={BACKGROUND_IMG_URL}
           alt="background"
+          className="h-screen w-full object-cover"
         />
       </div>
       <form
         onSubmit={(e) => e.preventDefault()}
-        className="absolute w-80 bg-black bg-opacity-80 flex flex-col space-y-4 p-10 pb-20 text-white top-20 right-1/2 translate-x-1/2 rounded-md"
+        className="absolute w-11/12 md:w-80 bg-black bg-opacity-80 flex flex-col space-y-4 p-4 md:p-10 pb-20 text-white top-20 right-1/2 translate-x-1/2 rounded-md"
       >
-        <h1 className="text-3xl font-bold mb-2">
+        <h1 className="text-xl md:text-3xl font-bold mb-2">
           Sign {isSignInForm ? "In" : "Up"}
         </h1>
         {!isSignInForm && (

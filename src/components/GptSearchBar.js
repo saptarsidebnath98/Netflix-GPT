@@ -23,7 +23,6 @@ const GptSearchBar = () => {
   }
 
   const handleGptSearchClick = async () => {
-    // console.log(searchText.current.value);
 
     const gptQuery = "Act as a movie recommendation system and suggest some movie names for the query: " + searchText.current.value + ". Only give me names of 5 movies, comma separated like the example given ahead. Example Result: Gadar, Don, Inception, Spiderman, The Lunchbox";
 
@@ -44,21 +43,18 @@ const GptSearchBar = () => {
     //response example: The Shawshank Redemption, The Godfather, The Dark Knight, Schindler's List, Pulp Fiction
     const gptMovies = gptResults.choices[0]?.message?.content.split(", ");
 
-    // ['Varisu', ' Thunivu', ' Ponniyin Selvan: II', ' Jailer', ' Leo']
-
     // For each movie I have to search TMDB search API
     const promiseArray = gptMovies.map((movie) => searchMovieTMDB(movie))
     // [Promise, Promise, Promise, Promise, Promise]
 
     const tmdbResults = await Promise.all(promiseArray);
 
-    console.log(tmdbResults);
     dispatch(addGptMovieResults({movieNames: gptMovies, movieResults: tmdbResults}));
   };
 
 
   return (
-    <div className="w-full absolute top-[10%] md:top-[15%] bg-transparent">
+    <div className="w-full absolute top-[12%] md:top-[15%] bg-transparent">
       <form
         className="pt-10 md:pb-10 px-3 md:px-12 w-full text-[12px] md:text-sm  md:w-1/2 mx-auto flex justify-center items-center space-x-2"
         onSubmit={(e) => e.preventDefault()}
