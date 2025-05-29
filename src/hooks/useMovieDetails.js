@@ -4,7 +4,8 @@ import { API_OPTIONS } from "../utils/constants";
 const useMovieDetails = (id) => {
     const [movieData, setMovieData] = useState(null);
     const [trailer, setTrailer] = useState(null);
-    const [loading, setLoading] = useState(true);
+    const [trailerLoading, setTrailerLoading] = useState(true);
+    const [movieDataLoading, setMovieDataLoading] = useState(true);
 
   const getMovieVideos = async () => {
     
@@ -17,7 +18,7 @@ const useMovieDetails = (id) => {
     const filterData = json.results.filter((video) => video.type === "Trailer");
     const fetchedTrailer = filterData.length ? filterData[0] : json.results[0];
     setTrailer(fetchedTrailer);
-    setLoading(false);
+    setTrailerLoading(false);
   };
 
   const getMovieData = async () => {
@@ -27,7 +28,7 @@ const useMovieDetails = (id) => {
     );
     const json = await data.json();
     setMovieData(json);
-    setLoading(false);
+    setMovieDataLoading(false);
   };
 
   useEffect(() => {
@@ -35,7 +36,7 @@ const useMovieDetails = (id) => {
     getMovieData();
   }, []);
 
-  return {movieData , trailer, loading}
+  return {movieData , trailer, trailerLoading, movieDataLoading}
 };
 
 export default useMovieDetails;
