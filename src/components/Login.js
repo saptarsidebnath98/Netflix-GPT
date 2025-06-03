@@ -104,7 +104,7 @@ const Login = () => {
             ref={fullName}
             type="text"
             placeholder="Full Name"
-            className="p-2  bg-gray-700 border bg-opacity-50 border-gray-400 rounded-md text-sm"
+            className="p-2 focus:outline-none bg-gray-700 border bg-opacity-50 border-gray-400 rounded-md text-sm"
           />
         )}
 
@@ -112,7 +112,7 @@ const Login = () => {
           ref={email}
           type="text"
           placeholder="Email address"
-          className="p-2 bg-gray-700 border bg-opacity-50 border-gray-400 rounded-md text-sm"
+          className="p-2 bg-gray-700 focus:outline-none border bg-opacity-50 border-gray-400 rounded-md text-sm"
         />
         <input
           ref={password}
